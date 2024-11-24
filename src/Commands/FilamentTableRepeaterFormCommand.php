@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Domnokapp\FilamentTableRepeaterForm\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class FilamentTableRepeaterFormCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'filament-table-repeater-form';
 
     public $description = 'My command';
 
