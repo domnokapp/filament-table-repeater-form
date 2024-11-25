@@ -47,6 +47,8 @@
         || $moveUpAction->isVisible()
         || $moveDownAction->isVisible()
         || filled($visibleExtraItemActions);
+
+    $index = 0;
 @endphp
 
 <x-dynamic-component :component="$getFieldWrapperView()" :field="$field">
@@ -121,7 +123,7 @@
                                 class="table-repeater-row"
                             >
                                 @php($counter = 0)
-                                <td class="table-repeater-column">{{ $counter + 1 }}</td>
+                                <td class="table-repeater-column text-center">{{ $index + 1 }}</td>
                                 @foreach($row->getComponents() as $cell)
                                     @if($cell instanceof \Filament\Forms\Components\Hidden || $cell->isHidden())
                                         {{ $cell }}
@@ -188,6 +190,7 @@
                                     </td>
                                 @endif
                             </tr>
+                            @php($index++)
                         @endforeach
                     @else
                         <tr class="table-repeater-row table-repeater-empty-row">
