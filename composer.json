@@ -33,8 +33,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Domnokapp\\FilamentTableRepeaterForm\\": "src/",
-            "Domnokapp\\FilamentTableRepeaterForm\\Database\\Factories\\": "database/factories/"
+            "Domnokapp\\FilamentTableRepeaterForm\\": "src/"
         }
     },
     "autoload-dev": {
