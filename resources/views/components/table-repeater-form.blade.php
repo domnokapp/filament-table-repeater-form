@@ -108,9 +108,7 @@
                         class="table-repeater-rows-wrapper divide-y divide-gray-950/5 dark:divide-white/20"
                     >
                     @if (count($containers))
-                        @php
-                            $index = 1;
-                        @endphp
+                        @php($index = 1)
                         @foreach ($containers as $uuid => $row)
                             @php
                                 $visibleExtraItemActions = array_filter(
@@ -145,9 +143,7 @@
                                             {{ $cell }}
                                         </td>
                                     @endif
-                                    @php
-                                        $index++;
-                                    @endphp
+                                    @php($index++)
                                 @endforeach
 
                                 @if ($hasActions)
