@@ -1,6 +1,6 @@
 <?php
 
-namespace Domnokapp\TableRepeater;
+namespace Domnokapp\FilamentTableRepeaterForm;
 
 use Closure;
 use Filament\Support\Concerns\EvaluatesClosures;

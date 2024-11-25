@@ -8,5 +8,8 @@ return [
         'row_actions' => [
             'label' => 'Row Actions',
         ],
+        'row_no' => [
+            'label' => 'No',
+        ],
     ],
 ];

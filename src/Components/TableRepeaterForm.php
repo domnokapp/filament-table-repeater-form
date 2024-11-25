@@ -13,6 +13,7 @@ class TableRepeaterForm extends Repeater
     use Concerns\HasEmptyLabel;
     use Concerns\HasExtraActions;
     use Concerns\HasHeader;
+    use Concerns\HasRowIndex;
 
     protected bool | Closure | null $showLabels = null;
 
