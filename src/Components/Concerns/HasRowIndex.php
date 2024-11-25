@@ -24,9 +24,9 @@ trait HasRowIndex
         return $this;
     }
 
-    public function getRowIndexes(): array
+    public function getRowIndexes(): int
     {
-        return $this->evaluate($this->rowIndex) ?? [];
+        return $this->evaluate($this->rowIndex) ?? 0;
     }
 
     public function shouldRenderRowIndex(): bool

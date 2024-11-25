@@ -108,7 +108,6 @@
                         class="table-repeater-rows-wrapper divide-y divide-gray-950/5 dark:divide-white/20"
                     >
                     @if (count($containers))
-                        @php($index = 1)
                         @foreach ($containers as $uuid => $row)
                             @php
                                 $visibleExtraItemActions = array_filter(
@@ -121,8 +120,8 @@
                                 x-sortable-item="{{ $uuid }}"
                                 class="table-repeater-row"
                             >
-                                <td class="table-repeater-column">{{ $index }}</td>
                                 @php($counter = 0)
+                                <td class="table-repeater-column">{{ $counter + 1 }}</td>
                                 @foreach($row->getComponents() as $cell)
                                     @if($cell instanceof \Filament\Forms\Components\Hidden || $cell->isHidden())
                                         {{ $cell }}
@@ -143,7 +142,6 @@
                                             {{ $cell }}
                                         </td>
                                     @endif
-                                    @php($index++)
                                 @endforeach
 
                                 @if ($hasActions)
