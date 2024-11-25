@@ -1,15 +1,15 @@
 {
-    "name": "theavuthnhel/filament-table-repeater-form",
+    "name": "domnokapp/filament-table-repeater-form",
     "description": "This is my package filament-table-repeater-form",
     "keywords": [
-        "theavuthnhel",
+        "domnokapp",
         "laravel",
         "filament-table-repeater-form"
     ],
-    "homepage": "https://github.com/theavuthnhel/filament-table-repeater-form",
+    "homepage": "https://github.com/domnokapp/filament-table-repeater-form",
     "support": {
-        "issues": "https://github.com/theavuthnhel/filament-table-repeater-form/issues",
-        "source": "https://github.com/theavuthnhel/filament-table-repeater-form"
+        "issues": "https://github.com/domnokapp/filament-table-repeater-form/issues",
+        "source": "https://github.com/domnokapp/filament-table-repeater-form"
     },
     "license": "MIT",
     "authors": [
