@@ -94,7 +94,7 @@
                         @if ($hasActions && count($containers))
                             <th class="table-repeater-header-column w-px last:rounded-tr-xl p-2 bg-gray-100 dark:bg-gray-900/60">
                                 <span class="sr-only">
-                                    {{ trans('table-repeater::components.repeater.row_actions.label') }}
+                                    {{ trans('table-repeater-form::components.repeater.row_actions.label') }}
                                 </span>
                             </th>
                         @endif
@@ -190,7 +190,7 @@
                         <tr class="table-repeater-row table-repeater-empty-row">
                             <td colspan="{{ count($headers) + intval($hasActions) }}"
                                 class="table-repeater-column table-repeater-empty-column p-4 w-px text-center italic">
-                                {{ $emptyLabel ?: trans('table-repeater::components.repeater.empty.label') }}
+                                {{ $emptyLabel ?: trans('table-repeater-form::components.repeater.empty.label') }}
                             </td>
                         </tr>
                     @endif
