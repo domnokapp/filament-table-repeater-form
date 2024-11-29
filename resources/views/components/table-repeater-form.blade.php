@@ -18,7 +18,7 @@
     $visibleExtraActions = [];
 
     $headers = $getHeaders();
-    $rowIndex = $getRowIndexes();
+    $rowIndex = $renderRowIndex();
     $renderHeader = $shouldRenderHeader();
     $stackAt = $getStackAt();
     $hasContainers = count($containers) > 0;
@@ -74,7 +74,9 @@
                         'table-repeater-header rounded-t-xl overflow-hidden border-b border-gray-950/5 dark:border-white/20' => $renderHeader,
                     ])>
                     <tr class="text-xs md:divide-x md:divide-gray-950/5 dark:md:divide-white/20">
-                        <th class="table-repeater-header-column p-2 font-medium first:rounded-tl-xl last:rounded-tr-xl bg-gray-100 dark:text-gray-300 dark:bg-gray-900/60">{{ trans('table-repeater-form::components.repeater.row_no.label') }}</th>
+                        @if($rowIndex)
+                            <th class="table-repeater-header-column p-2 font-bold bg-gray-100 dark:text-gray-300 dark:bg-gray-900/60 uppercase">{{ trans('table-repeater-form::components.repeater.row_no.label') }}</th>
+                        @endif
                         @foreach ($headers as $key => $header)
                             <th
                                 @class([
@@ -123,7 +125,14 @@
                                 class="table-repeater-row"
                             >
                                 @php($counter = 0)
-                                <td class="table-repeater-column text-center">{{ $index + 1 }}</td>
+                                @if($rowIndex)
+                                    <td
+                                        class="table-repeater-column p-2"
+                                        style="width: 80px"
+                                    >
+                                        {{ $index + 1 }}
+                                    </td>
+                                @endif
                                 @foreach($row->getComponents() as $cell)
                                     @if($cell instanceof \Filament\Forms\Components\Hidden || $cell->isHidden())
                                         {{ $cell }}
@@ -192,9 +201,12 @@
                             </tr>
                             @php($index++)
                         @endforeach
+                        <tr>
+                            <th></th>
+                        </tr>
                     @else
                         <tr class="table-repeater-row table-repeater-empty-row">
-                            <td colspan="{{ count($headers) + intval($hasActions) + 1 }}"
+                            <td colspan="{{ count($headers) + intval($hasActions) + intval($rowIndex) }}"
                                 class="table-repeater-column table-repeater-empty-column p-4 w-px text-center italic">
                                 {{ $emptyLabel ?: trans('table-repeater-form::components.repeater.empty.label') }}
                             </td>
