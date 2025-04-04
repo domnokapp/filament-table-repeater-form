@@ -77,14 +77,14 @@
                     ])>
                     <tr class="text-xs md:divide-x md:divide-gray-950/5 dark:md:divide-white/20">
                         @if($rowIndex)
-                            <th class="table-repeater-header-column p-2 font-bold bg-gray-100 dark:text-gray-300 dark:bg-gray-900/60 uppercase" style="width: 100px;">
+                            <th class="table-repeater-header-column p-2 text-center text-xl font-bold bg-gray-100 dark:text-gray-300 dark:bg-gray-900/60 uppercase" style="width: 100px;">
                                 {{ trans('table-repeater-form::components.repeater.row_no.label') }}
                             </th>
                         @endif
                         @foreach ($headers as $key => $header)
                             <th
                                 @class([
-                                    'table-repeater-header-column p-2 font-medium first:rounded-tl-xl last:rounded-tr-xl bg-gray-100 dark:text-gray-300 dark:bg-gray-900/60',
+                                    'table-repeater-header-column p-2 font-bold text-xl first:rounded-tl-xl last:rounded-tr-xl bg-gray-100 dark:text-gray-300 dark:bg-gray-900/60',
                                     match($header->getAlignment()) {
                                       'center', Alignment::Center => 'text-center',
                                       'right', 'end', Alignment::Right, Alignment::End => 'text-end',
@@ -226,7 +226,7 @@
                             @foreach ($footers as $key => $footer)
                                 <th
                                     @class([
-                                        'table-repeater-header-column p-2 font-medium first:rounded-tl-xl last:rounded-tr-xl bg-gray-100 dark:text-gray-300 dark:bg-gray-900/60',
+                                        'table-repeater-header-column p-2 font-bold font-bold first:rounded-tl-xl text-xl bg-gray-100 dark:text-gray-300 dark:bg-gray-900/60',
                                         match($footer->getAlignment()) {
                                         'center', Alignment::Center => 'text-center',
                                         'right', 'end', Alignment::Right, Alignment::End => 'text-end',
