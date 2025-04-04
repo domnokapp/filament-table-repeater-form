@@ -91,7 +91,7 @@
                                       default => 'text-start'
                                     }
                                 ])
-                                style="width: {{ $header->getWidth() }} text-transform: uppercase !important;"
+                                style="width: {{ $header->getWidth() }}; text-transform: uppercase !important;"
                             >
                                 {{ $header->getLabel() }}
                                 @if ($header->isRequired())
