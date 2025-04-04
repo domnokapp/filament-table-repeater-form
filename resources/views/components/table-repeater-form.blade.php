@@ -18,6 +18,7 @@
     $visibleExtraActions = [];
 
     $headers = $getHeaders();
+    $footers = $getFooters();
     $rowIndex = $renderRowIndex();
     $renderHeader = $shouldRenderHeader();
     $stackAt = $getStackAt();
