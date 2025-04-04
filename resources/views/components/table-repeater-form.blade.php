@@ -77,32 +77,32 @@
                     ])>
                     <tr class="text-xs md:divide-x md:divide-gray-950/5 dark:md:divide-white/20">
                         @if($rowIndex)
-                            <th class="table-repeater-header-column p-2 text-center text-xl font-bold bg-gray-100 dark:text-gray-300 dark:bg-gray-900/60 uppercase" style="width: 100px;">
+                            <th class="table-repeater-header-column p-2 text-center text-md font-bold bg-gray-100 dark:text-gray-300 dark:bg-gray-900/60 uppercase" style="width: 100px; text-transform: uppercase !important;">
                                 {{ trans('table-repeater-form::components.repeater.row_no.label') }}
                             </th>
                         @endif
                         @foreach ($headers as $key => $header)
                             <th
                                 @class([
-                                    'table-repeater-header-column p-2 font-bold text-xl first:rounded-tl-xl last:rounded-tr-xl bg-gray-100 dark:text-gray-300 dark:bg-gray-900/60',
+                                    'table-repeater-header-column p-2 font-bold uppercase text-md first:rounded-tl-xl last:rounded-tr-xl bg-gray-100 dark:text-gray-300 dark:bg-gray-900/60',
                                     match($header->getAlignment()) {
                                       'center', Alignment::Center => 'text-center',
                                       'right', 'end', Alignment::Right, Alignment::End => 'text-end',
                                       default => 'text-start'
                                     }
                                 ])
-                                style="width: {{ $header->getWidth() }}"
+                                style="width: {{ $header->getWidth() }} text-transform: uppercase !important;"
                             >
                                 {{ $header->getLabel() }}
                                 @if ($header->isRequired())
                                     <span class="whitespace-nowrap">
-                                        <sup class="font-medium text-danger-700 dark:text-danger-400">*</sup>
+                                        <sup class="font-bold text-danger-700 dark:text-danger-400">*</sup>
                                     </span>
                                 @endif
                             </th>
                         @endforeach
                         @if ($hasActions && count($containers))
-                            <th class="table-repeater-header-column w-px last:rounded-tr-xl p-2 bg-gray-100 dark:bg-gray-900/60">
+                            <th class="table-repeater-header-column w-px last:rounded-tr-xl p-2 bg-gray-100 dark:bg-gray-900/60" style="text-transform: uppercase !important;">
                                 <span class="sr-only">
                                     {{ trans('table-repeater-form::components.repeater.row_actions.label') }}
                                 </span>
@@ -226,13 +226,14 @@
                             @foreach ($footers as $key => $footer)
                                 <th
                                     @class([
-                                        'table-repeater-header-column p-2 font-bold font-bold first:rounded-tl-xl text-xl bg-gray-100 dark:text-gray-300 dark:bg-gray-900/60',
+                                        'table-repeater-header-column p-2 font-bold first:rounded-tl-xl uppercase text-md bg-gray-100 dark:text-gray-300 dark:bg-gray-900/60',
                                         match($footer->getAlignment()) {
                                         'center', Alignment::Center => 'text-center',
                                         'right', 'end', Alignment::Right, Alignment::End => 'text-end',
                                         default => 'text-start'
                                         }
                                     ])
+                                    style="text-transform: uppercase !important;"
                                 >
                                     {{ $footer->getLabel() }}
                                 </th>
