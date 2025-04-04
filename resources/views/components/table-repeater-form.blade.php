@@ -75,7 +75,9 @@
                     ])>
                     <tr class="text-xs md:divide-x md:divide-gray-950/5 dark:md:divide-white/20">
                         @if($rowIndex)
-                            <th class="table-repeater-header-column p-2 font-bold bg-gray-100 dark:text-gray-300 dark:bg-gray-900/60 uppercase">{{ trans('table-repeater-form::components.repeater.row_no.label') }}</th>
+                            <th class="table-repeater-header-column p-2 font-bold bg-gray-100 dark:text-gray-300 dark:bg-gray-900/60 uppercase" style="width: 100px;">
+                                {{ trans('table-repeater-form::components.repeater.row_no.label') }}
+                            </th>
                         @endif
                         @foreach ($headers as $key => $header)
                             <th
@@ -206,13 +208,35 @@
                         </tr>
                     @else
                         <tr class="table-repeater-row table-repeater-empty-row">
-                            <td colspan="{{ count($headers) + intval($hasActions) + intval($rowIndex) }}"
+                            <td colspan="{{ count($headers) + intval($hasActions) + ($rowIndex ? 1 : 0) }}"
                                 class="table-repeater-column table-repeater-empty-column p-4 w-px text-center italic">
                                 {{ $emptyLabel ?: trans('table-repeater-form::components.repeater.empty.label') }}
                             </td>
                         </tr>
                     @endif
                     </tbody>
+
+                    <tfoot @class([
+                        'table-repeater-header-hidden sr-only' => ! $renderFooter,
+                        'table-repeater-header rounded-t-xl overflow-hidden border-b border-gray-950/10 dark:border-gray/20' => $renderFooter,
+                    ])>
+                        <tr class="text-xs md:divide-x md:divide-gray-950/10 dark:md:divide-gray/20">
+                            @foreach ($footers as $key => $footer)
+                                <th
+                                    @class([
+                                        'table-repeater-header-column p-2 font-medium first:rounded-tl-xl last:rounded-tr-xl bg-gray-100 dark:text-gray-300 dark:bg-gray-900/60',
+                                        match($footer->getAlignment()) {
+                                        'center', Alignment::Center => 'text-center',
+                                        'right', 'end', Alignment::Right, Alignment::End => 'text-end',
+                                        default => 'text-start'
+                                        }
+                                    ])
+                                >
+                                    {{ $footer->getLabel() }}
+                                </th>
+                            @endforeach
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
         @endif

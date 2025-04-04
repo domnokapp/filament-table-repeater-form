@@ -2,7 +2,6 @@
 
 namespace Domnokapp\FilamentTableRepeaterForm;
 
-use Filament\Support\Assets\AlpineComponent;
 use Filament\Support\Assets\Asset;
 use Filament\Support\Assets\Css;
 use Filament\Support\Assets\Js;
@@ -10,7 +9,6 @@ use Filament\Support\Facades\FilamentAsset;
 use Filament\Support\Facades\FilamentIcon;
 use Illuminate\Filesystem\Filesystem;
 use Livewire\Features\SupportTesting\Testable;
-use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Domnokapp\FilamentTableRepeaterForm\Commands\FilamentTableRepeaterFormCommand;
@@ -33,33 +31,6 @@ class FilamentTableRepeaterFormServiceProvider extends PackageServiceProvider
             ->hasAssets()
             ->hasTranslations()
             ->hasViews();
-        // $package->name(static::$name)
-        //     ->hasCommands($this->getCommands())
-        //     ->hasInstallCommand(function (InstallCommand $command) {
-        //         $command
-        //             ->publishConfigFile()
-        //             ->publishMigrations()
-        //             ->askToRunMigrations()
-        //             ->askToStarRepoOnGitHub('domnokapp/filament-table-repeater-form');
-        //     });
-
-        // $configFileName = $package->shortName();
-
-        // if (file_exists($package->basePath("/../config/{$configFileName}.php"))) {
-        //     $package->hasConfigFile();
-        // }
-
-        // if (file_exists($package->basePath('/../database/migrations'))) {
-        //     $package->hasMigrations($this->getMigrations());
-        // }
-
-        // if (file_exists($package->basePath('/../resources/lang'))) {
-        //     $package->hasTranslations();
-        // }
-
-        // if (file_exists($package->basePath('/../resources/views'))) {
-        //     $package->hasViews(static::$viewNamespace);
-        // }
     }
 
     public function packageRegistered(): void {}
@@ -104,7 +75,6 @@ class FilamentTableRepeaterFormServiceProvider extends PackageServiceProvider
     protected function getAssets(): array
     {
         return [
-            // AlpineComponent::make('filament-table-repeater-form', __DIR__ . '/../resources/dist/components/filament-table-repeater-form.js'),
             Css::make('filament-table-repeater-form-styles', __DIR__ . '/../resources/dist/filament-table-repeater-form.css'),
             Js::make('filament-table-repeater-form-scripts', __DIR__ . '/../resources/dist/filament-table-repeater-form.js'),
         ];
