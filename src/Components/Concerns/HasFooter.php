@@ -19,7 +19,7 @@ trait HasFooter
         return $this;
     }
 
-    public function renderFooter(bool | Closure $condition = true): static
+    public function renderFooter(bool | Closure $condition = false): static
     {
         $this->renderFooter = $condition;
 

@@ -21,6 +21,7 @@
     $footers = $getFooters();
     $rowIndex = $renderRowIndex();
     $renderHeader = $shouldRenderHeader();
+    $renderFooter = $shouldRenderFooter();
     $stackAt = $getStackAt();
     $hasContainers = count($containers) > 0;
     $emptyLabel = $getEmptyLabel();
