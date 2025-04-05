@@ -19,6 +19,8 @@
 
     $headers = $getHeaders();
     $footers = $getFooters();
+    $isUsedContent = $getIsUsedContent();
+    $content = $getContent();
     $rowIndex = $renderRowIndex();
     $renderHeader = $shouldRenderHeader();
     $renderFooter = $shouldRenderFooter();
@@ -235,7 +237,11 @@
                                     ])
                                     style="text-transform: uppercase !important;"
                                 >
-                                    {{ $footer->getLabel() }}
+                                    @if($isUsedContent)
+                                        {{ $content }}
+                                    @else
+                                        {{ $footer->getLabel() }}
+                                    @endif
                                 </th>
                             @endforeach
                         </tr>

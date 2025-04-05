@@ -16,6 +16,8 @@ class Footer
         public string $name,
         public string | Htmlable | Closure | null $label = null,
         public string | Closure | Alignment | null $align = null,
+        protected mixed $content = null,
+        public bool $isUseContent = false,
     ){}
 
     public static function make(string $name): static
@@ -47,6 +49,30 @@ class Footer
     {
         return $this->evaluate($this->label)
             ?? (string) Str::of($this->name)->title();
+    }
+
+    public function content(mixed $content): static
+    {
+        $this->content = $content;
+
+        return $this;
+    }
+
+    public function getContent(): mixed
+    {
+        return $this->evaluate($this->content);
+    }
+
+    public function useContent(bool | Closure $isUseContent = true)
+    {
+        $this->isUseContent = $isUseContent;
+
+        return $this;
+    }
+
+    public function getIsUsedContent(): bool
+    {
+        return $this->isUseContent;
     }
 
 }
