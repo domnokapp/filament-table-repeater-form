@@ -131,7 +131,7 @@
                                 @php($counter = 0)
                                 @if($rowIndex)
                                     <td
-                                        class="table-repeater-column p-2"
+                                        class="table-repeater-column p-2 text-center"
                                         style="width: 80px"
                                     >
                                         {{ $index + 1 }}
